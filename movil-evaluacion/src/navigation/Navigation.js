@@ -11,10 +11,10 @@ const Navigation = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="User" component={Users} options={{title:'User'}} />
-                {/*<Stack.Screen name="Add" component={Add} 
-                options={{presentation:'modal', title:'Nuevo Usuario'}}/>*/}
                 <Stack.Screen name="Login" component={Login} options={{title:'Login'}} />
+                <Stack.Screen name="User" component={Users} options={{title:'User'}} />
+                <Stack.Screen name="Add" component={Add} 
+                options={{presentation:'modal', title:'Nuevo Usuario'}}/>
                 <Stack.Screen name="Home" component={Home} 
                 options={{presentation:'modal', title:'Home'}}/>
             </Stack.Navigator>

@@ -1,8 +1,15 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-import { API_KEY, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID, APP_ID, test} from '../../';
-
+import {
+  API_KEY,
+  AUTH_DOMAIN,
+  PROJECT_ID,
+  STORAGE_BUCKET,
+  MESSAGING_SENDER_ID,
+  APP_ID,
+  test,
+} from "@env";
 
 const firebaseConfig = {
   apiKey: API_KEY,
@@ -10,7 +17,7 @@ const firebaseConfig = {
   projectId: PROJECT_ID,
   storageBucket: STORAGE_BUCKET,
   messagingSenderId: MESSAGING_SENDER_ID,
-  appId: APP_ID    
+  appId: APP_ID,
 };
 
 console.log("Valor de test: ", test);
@@ -18,19 +25,18 @@ console.log("Valor de configuracion", firebaseConfig);
 
 const app = initializeApp(firebaseConfig);
 if (app) {
-  console.log('Firebase initialized successfully');
+  console.log("Firebase initialized successfully");
 } else {
-  console.log('Firebase initialization failed');
+  console.log("Firebase initialization failed");
 }
 
 const database = getFirestore(app);
 if (database) {
-  console.log('Firestore initialized correctly');
+  console.log("Firestore initialized correctly");
 } else {
-  console.log('Firestore initialization failed');
+  console.log("Firestore initialization failed");
 }
-
 
 const auth = getAuth(app);
 
-export { database, auth }; 
+export { database, auth };
