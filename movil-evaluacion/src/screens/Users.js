@@ -110,17 +110,12 @@ const Users = ({ navigation }) => {
 
         <View style={styles.container}>
 
-            {/* HEADER */}
 
             <View style={styles.header}>
 
                 <View style={styles.headerTitleContainer}>
 
                     <View style={styles.blueDot} />
-
-                    <Text style={styles.headerTitle}>
-                        DIRECTORIO
-                    </Text>
 
                 </View>
 
@@ -139,8 +134,6 @@ const Users = ({ navigation }) => {
             </View>
 
 
-            {/* CONTENIDO */}
-
             <View style={styles.content}>
 
                 <View style={styles.titleRow}>
@@ -149,10 +142,6 @@ const Users = ({ navigation }) => {
 
                         <Text style={styles.title}>
                             Usuarios
-                        </Text>
-
-                        <Text style={styles.subtitle}>
-                            Directorio corporativo sincronizado
                         </Text>
 
                     </View>
@@ -168,8 +157,6 @@ const Users = ({ navigation }) => {
 
                 </View>
 
-
-                {/* BUSCADOR */}
 
                 <View style={styles.searchContainer}>
 
@@ -187,8 +174,6 @@ const Users = ({ navigation }) => {
 
                 </View>
 
-
-                {/* LISTA */}
 
                 {filteredUsers.length !== 0 ? (
 
@@ -220,17 +205,10 @@ const Users = ({ navigation }) => {
 
             </View>
 
-
-            {/* FOOTER */}
-
             <View style={styles.footer}>
 
                 <Text style={styles.footerText}>
                     {users.length} usuarios
-                </Text>
-
-                <Text style={styles.footerText}>
-                    Sincronizado
                 </Text>
 
             </View>
@@ -251,9 +229,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#FAF8FF',
     },
-
-
-    /* HEADER */
 
     header: {
         height: 65,
@@ -321,9 +296,6 @@ const styles = StyleSheet.create({
         lineHeight: 30,
     },
 
-
-    /* CONTENIDO */
-
     content: {
         flex: 1,
 
@@ -380,9 +352,6 @@ const styles = StyleSheet.create({
         color: '#004AC6',
     },
 
-
-    /* BUSCADOR */
-
     searchContainer: {
         height: 48,
 
@@ -416,15 +385,9 @@ const styles = StyleSheet.create({
         color: '#131B2E',
     },
 
-
-    /* LISTA */
-
     list: {
         paddingBottom: 20,
     },
-
-
-    /* SIN USUARIOS */
 
     emptyContainer: {
         flex: 1,
@@ -453,10 +416,6 @@ const styles = StyleSheet.create({
 
         textAlign: 'center',
     },
-
-
-    /* FOOTER */
-
     footer: {
         height: 42,
 
