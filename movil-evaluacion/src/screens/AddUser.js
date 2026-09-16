@@ -1,23 +1,9 @@
 import React, { useState } from 'react';
 
-import {
-    View,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    StyleSheet,
-    Alert,
-    ScrollView,
-} from 'react-native';
-
-import {
-    collection,
-    addDoc,
-    serverTimestamp,
-} from 'firebase/firestore';
+import {View,Text,TextInput,TouchableOpacity,StyleSheet,Alert,ScrollView,} from 'react-native';
+import {collection,addDoc,serverTimestamp,} from 'firebase/firestore';
 
 import { database } from '../config/firebase';
-
 
 const AddUser = ({ navigation }) => {
 
@@ -31,7 +17,6 @@ const AddUser = ({ navigation }) => {
 
     const handleAddUser = async () => {
 
-        // Validar campos obligatorios
         if (
             nombre.trim() === '' ||
             fecha_nacimiento.trim() === '' ||
@@ -104,17 +89,12 @@ const AddUser = ({ navigation }) => {
         }
 
     };
-
-
     return (
-
         <ScrollView
             style={styles.container}
             contentContainerStyle={styles.content}
             keyboardShouldPersistTaps="handled"
         >
-
-            {/* ENCABEZADO */}
 
             <View style={styles.header}>
 
@@ -137,15 +117,12 @@ const AddUser = ({ navigation }) => {
                     </Text>
 
                     <Text style={styles.headerSubtitle}>
-                        Agregar al directorio
+                        Agregar 
                     </Text>
 
                 </View>
 
             </View>
-
-
-            {/* TÍTULO */}
 
             <View style={styles.titleContainer}>
 
@@ -159,12 +136,7 @@ const AddUser = ({ navigation }) => {
 
             </View>
 
-
-            {/* FORMULARIO */}
-
             <View style={styles.form}>
-
-                {/* NOMBRE */}
 
                 <View style={styles.inputContainer}>
 
@@ -183,9 +155,6 @@ const AddUser = ({ navigation }) => {
 
                 </View>
 
-
-                {/* FECHA DE NACIMIENTO */}
-
                 <View style={styles.inputContainer}>
 
                     <Text style={styles.label}>
@@ -203,9 +172,6 @@ const AddUser = ({ navigation }) => {
 
                 </View>
 
-
-                {/* CARNET */}
-
                 <View style={styles.inputContainer}>
 
                     <Text style={styles.label}>
@@ -222,9 +188,6 @@ const AddUser = ({ navigation }) => {
                     />
 
                 </View>
-
-
-                {/* URL */}
 
                 <View style={styles.inputContainer}>
 
@@ -245,9 +208,6 @@ const AddUser = ({ navigation }) => {
 
                 </View>
 
-
-                {/* BOTÓN */}
-
                 <TouchableOpacity
                     style={[
                         styles.button,
@@ -264,9 +224,6 @@ const AddUser = ({ navigation }) => {
                     </Text>
 
                 </TouchableOpacity>
-
-
-                {/* CANCELAR */}
 
                 <TouchableOpacity
                     style={styles.cancelButton}
@@ -304,9 +261,6 @@ const styles = StyleSheet.create({
     content: {
         paddingBottom: 30,
     },
-
-
-    /* HEADER */
 
     header: {
         height: 70,
@@ -366,9 +320,6 @@ const styles = StyleSheet.create({
         marginTop: 2,
     },
 
-
-    /* TÍTULO */
-
     titleContainer: {
         paddingHorizontal: 20,
 
@@ -396,10 +347,6 @@ const styles = StyleSheet.create({
 
         lineHeight: 20,
     },
-
-
-    /* FORMULARIO */
-
     form: {
         paddingHorizontal: 20,
     },
@@ -439,9 +386,6 @@ const styles = StyleSheet.create({
         color: '#131B2E',
     },
 
-
-    /* BOTÓN */
-
     button: {
         height: 50,
 
@@ -469,9 +413,6 @@ const styles = StyleSheet.create({
 
         fontWeight: '700',
     },
-
-
-    /* CANCELAR */
 
     cancelButton: {
         height: 48,
