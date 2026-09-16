@@ -8,19 +8,17 @@ import {
   StyleSheet,
   Alert,
 } from "react-native";
-// Si usas React Navigation, importa de esta forma. Si usas Expo Router, usa 'import { router } from "expo-router";'
 import { useNavigation } from "@react-navigation/native";
 import { useAuth } from "../hooks/useAuth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const navigation = useNavigation();
-  const { login, token } = useAuth(); // Optimizado en una sola llamada
+  const { login, token } = useAuth();
 
   useEffect(() => {
     if (token) {
@@ -39,25 +37,24 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("https://fakestoreapi.com/users");
-      const users = await response.json();
 
-      const user = users.find(
-        (item) =>
-          item.email.toLowerCase() === email.trim().toLowerCase() &&
-          item.password === password
-      );
+      await login(email.trim(), password);
+    } catch (error_) {
+      let message = "Error al iniciar sesión. Intenta nuevamente.";
 
-      if (!user) {
-        throw new Error("Email o contraseña incorrectos.");
+      if (
+        error_.code === "auth/invalid-credential" ||
+        error_.code === "auth/user-not-found" ||
+        error_.code === "auth/wrong-password"
+      ) {
+        message = "Email o contraseña incorrectos.";
+      } else if (error_.code === "auth/invalid-email") {
+        message = "El formato del correo electrónico no es válido.";
+      } else if (error_.code === "auth/too-many-requests") {
+        message = "Muchos intentos fallidos. Intenta más tarde.";
       }
 
-      login(user);
-      navigation.navigate("Home");
-    } catch (error_) {
-      setError(
-        error_.message || "Error al iniciar sesión. Intenta nuevamente."
-      );
+      setError(message);
     } finally {
       setLoading(false);
     }
@@ -92,7 +89,9 @@ const Login = () => {
         </View>
 
         <TouchableOpacity
-          onPress={() => Alert.alert("Recuperar contraseña", "Opción en desarrollo")}
+          onPress={() =>
+            Alert.alert("Recuperar contraseña", "Opción en desarrollo")
+          }
         >
           <Text style={styles.linkText}>¿Olvidaste tu contraseña?</Text>
         </TouchableOpacity>

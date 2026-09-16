@@ -1,8 +1,9 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { API_KEY, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID, APP_ID, test} from '@env';
+import { getAuth } from "firebase/auth";
+import { API_KEY, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID, APP_ID, test} from '../../';
 
-// Your web app's Firebase configuration
+
 const firebaseConfig = {
   apiKey: API_KEY,
   authDomain: AUTH_DOMAIN,
@@ -15,7 +16,7 @@ const firebaseConfig = {
 console.log("Valor de test: ", test);
 console.log("Valor de configuracion", firebaseConfig);
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 if (app) {
   console.log('Firebase initialized successfully');
@@ -30,4 +31,7 @@ if (database) {
   console.log('Firestore initialization failed');
 }
 
-export { database };
+
+const auth = getAuth(app);
+
+export { database, auth }; 
