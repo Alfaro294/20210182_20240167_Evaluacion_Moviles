@@ -16,7 +16,6 @@ const firebaseConfig = {
 console.log("Valor de test: ", test);
 console.log("Valor de configuracion", firebaseConfig);
 
-
 const app = initializeApp(firebaseConfig);
 if (app) {
   console.log('Firebase initialized successfully');
