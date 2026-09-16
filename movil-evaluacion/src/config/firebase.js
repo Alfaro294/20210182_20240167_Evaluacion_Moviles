@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { API_KEY, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID, APP_ID, test} from '@env';
+import { getAuth } from "firebase/auth";
+import { API_KEY, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID, APP_ID, test} from '../../';
+
 
 const firebaseConfig = {
   apiKey: API_KEY,
@@ -28,4 +30,7 @@ if (database) {
   console.log('Firestore initialization failed');
 }
 
-export { database };
+
+const auth = getAuth(app);
+
+export { database, auth }; 
